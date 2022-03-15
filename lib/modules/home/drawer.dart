@@ -9,7 +9,8 @@ import 'package:get/get.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return Drawer(
       child: Background(
         child: Container(
@@ -37,13 +38,14 @@ class AppDrawer extends StatelessWidget {
               ),
               Align(
                   alignment: Alignment.centerLeft,
-                  child: texts("dilpreet@gmailcom",textColor: Colors.black45,fontSize: SizeConfig.blockSizeVertical*1.9,
+                  child: texts("dilpreet@gmail.com",textColor: Colors.black45,fontSize: SizeConfig.blockSizeVertical*1.9,
                       fontWeight: FontWeight.w500)
               ),
               SizedBox(height: SizeConfig.blockSizeVertical*5,),
               Container(
                 height: SizeConfig.blockSizeVertical*45.5,
-                child: SingleChildScrollView(child: Column(children: [
+                child: SingleChildScrollView(child: Column(children:
+                [
                   GestureDetector(
                     onTap: ()
                     {

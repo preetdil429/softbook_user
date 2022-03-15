@@ -20,6 +20,14 @@ class AddPartyController extends GetxController {
   var otpCode = "";
   var selectedCountry = TextEditingController().obs;
   final storage = GetStorage();
+  var selectionCont= new TextEditingController().obs;
+  var typeList =["Unregistered",
+  "Register - Regular"];
+
+  var name = TextEditingController();
+  var phoneNum = TextEditingController();
+  var billingAddress = TextEditingController();
+  var email = TextEditingController();
 
 
   @override
@@ -59,13 +67,13 @@ class AddPartyController extends GetxController {
         builder: (builder)
         {
           return Container(
-            height: SizeConfig.blockSizeVertical * 54.25,
+            height: SizeConfig.blockSizeVertical * 30,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: mainColor,
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(25),
                           topLeft: Radius.circular(25)),
@@ -102,7 +110,7 @@ class AddPartyController extends GetxController {
                       ],
                     )),
                 Container(
-                  height: SizeConfig.blockSizeVertical * 45,
+                  height: SizeConfig.blockSizeVertical * 20,
                   child: ListView.builder(
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
