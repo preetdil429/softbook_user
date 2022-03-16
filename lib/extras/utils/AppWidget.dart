@@ -31,7 +31,7 @@ Widget CustomText(String text,
       ? RichText(
           text: TextSpan(
               text: textAllCaps ? text.toUpperCase() : text,
-              style: GoogleFonts.openSans(
+              style: GoogleFonts.raleway(
                 textStyle: TextStyle(
                     fontSize: fontSize,
                     color: textColor,

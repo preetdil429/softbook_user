@@ -8,6 +8,7 @@ import 'package:flutter_softbook/modules/item/itemView.dart';
 import 'package:flutter_softbook/modules/item/productView.dart';
 import 'package:flutter_softbook/modules/item/serviceView.dart';
 import 'package:flutter_softbook/modules/party/partyView.dart';
+import 'package:flutter_softbook/modules/sale/saleInvoice/addSaleInvoiceView.dart';
 import 'package:get/get.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -169,6 +170,7 @@ class AppDrawer extends StatelessWidget {
                         onTap: ()
                         {
                           Get.back();
+                          Get.to(()=>AddSaleInvoiceScreen());
                         },
                         child: Row(
                           children: [
