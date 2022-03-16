@@ -136,6 +136,129 @@ class EditTextState extends State<EditText> {
   }
 }
 
+
+class FieldEditText extends StatefulWidget {
+  var isPassword;
+  var isSecure;
+  var fontSize;
+  var textColor;
+  var fontFamily;
+  var maxLine = 1;
+  var minLine = 1;
+  Function? validator;
+  TextEditingController? mController;
+  TextInputType? keyboardType;
+  VoidCallback? onPressed;
+  var hintText;
+  var labelText;
+  Function? onSubmitted;
+  TextInputAction? textInputAction;
+  List<TextInputFormatter>? inputFormatter;
+  FocusNode? focusNode;
+  String? type;
+  TextAlign? textAlign;
+  String? labelInfo;
+  String? icon;
+  bool? localIcon = false;
+  Color? hintColor;
+  IconData? staticIcon;
+  double? verticalPadding;
+  Widget? suffix;
+  Widget? prefix;
+
+  FieldEditText(
+      {var this.fontSize = textSizeMedium,
+        var this.textColor = color_text_secondary,
+        var this.fontFamily = fontRegular,
+        var this.isPassword = true,
+        var this.isSecure = false,
+        var this.mController,
+        var this.maxLine = 1,
+        var this.minLine = 1,
+        this.validator,
+        this.keyboardType,
+        this.hintText,this.hintColor,this.prefix,this.suffix,
+        this.labelText,
+        this.textInputAction,
+        this.inputFormatter,
+        this.focusNode,
+        this.type,
+        this.onSubmitted,this.verticalPadding,
+        this.textAlign = TextAlign.start,
+        this.labelInfo,
+        this.icon,
+        this.localIcon,
+        this.staticIcon});
+
+  @override
+  State<StatefulWidget> createState() {
+    return FieldEditTextState();
+  }
+}
+
+class FieldEditTextState extends State<FieldEditText> {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      style: GoogleFonts.raleway(textStyle:TextStyle(
+          fontSize: SizeConfig.blockSizeVertical*2.1,
+          fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.w500,
+          color: widget.hintColor)),
+      obscureText: widget.isPassword,
+      controller: widget.mController,
+      keyboardType: widget.keyboardType,
+      textInputAction: widget.textInputAction,
+      inputFormatters: widget.inputFormatter,
+      focusNode: widget.focusNode,
+      textAlign: widget.textAlign!,
+      minLines: widget.minLine,
+      onFieldSubmitted: (value)
+      {
+        widget.onSubmitted!();
+      },
+      textCapitalization: TextCapitalization.sentences,
+      decoration: InputDecoration(
+        hintText: widget.hintText,contentPadding: EdgeInsets.only(top: widget.verticalPadding!,left: widget.verticalPadding!),
+        alignLabelWithHint: false,
+        isDense: false,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        hintStyle: GoogleFonts.raleway(fontStyle: FontStyle.normal,textStyle:TextStyle(
+            fontSize: SizeConfig.blockSizeVertical*1.85,
+            fontStyle: FontStyle.normal,
+            fontWeight: FontWeight.w400,
+            color: widget.hintColor),),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+              color: mainColor,
+              width: 1.25),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+              color: mainColor,
+              width: 1.25),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+              color: mainColor,
+              width: 1.25),
+        ),
+        prefixIcon: widget.prefix,
+        suffixIcon: widget.suffix,
+      ),
+      validator: (value)
+      {
+        widget.validator;
+      },
+    );
+
+  }
+
+  @override
+  State<StatefulWidget>? createState() {
+    return null;
+  }
+}
 class AppButton extends StatefulWidget {
   var textContent;
   VoidCallback? onPressed;
