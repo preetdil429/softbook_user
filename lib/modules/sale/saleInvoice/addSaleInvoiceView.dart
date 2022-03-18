@@ -533,28 +533,287 @@ class AddSaleInvoiceScreen extends StatelessWidget {
                             ],));
                         }),
                   ),
+                  SizedBox(height: SizeConfig.blockSizeVertical*1,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      texts("Items Total",fontSize: SizeConfig.blockSizeVertical*2.25,
+                          fontWeight: FontWeight.w700,textColor:
+                          Colors.black),
+                      texts("₹22213.4",fontSize: SizeConfig.blockSizeVertical*2.25,
+                          fontWeight: FontWeight.w600,textColor:
+                          Colors.black),
+                    ],),
                   SizedBox(height: SizeConfig.blockSizeVertical*2,),
+
                   Center(
                     child: GestureDetector(
                       onTap: ()
                       {
                         Get.to(()=>AddSaleItemScreen());
                       },
-                      child: Container(width: SizeConfig.blockSizeHorizontal*50,height: SizeConfig.blockSizeVertical*4.5,
+                      child: Container(width: SizeConfig.blockSizeHorizontal*40,height: SizeConfig.blockSizeVertical*4.25,
                         decoration: BoxDecoration(color: mainColor,borderRadius: BorderRadius.circular(24.0)),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.add,color: Colors.white,size: SizeConfig.blockSizeVertical*2.75,),
-                            SizedBox(width: SizeConfig.blockSizeHorizontal*3,),
-                            texts("Add Item",fontSize: SizeConfig.blockSizeVertical*1.95,
+                            Icon(Icons.add,color: Colors.white,size: SizeConfig.blockSizeVertical*2.5,),
+                            SizedBox(width: SizeConfig.blockSizeHorizontal*2.75,),
+                            texts("Add Item",fontSize: SizeConfig.blockSizeVertical*1.85,
                                 fontWeight: FontWeight.w600,textColor:
                             Colors.white)
                           ],),
                       ),
                     ),
                   ),
+                  SizedBox(height: SizeConfig.blockSizeVertical*2,),
+                  SizedBox(height: SizeConfig.blockSizeVertical*2,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      texts("Payment Type",fontSize: SizeConfig.blockSizeVertical*2.2,textColor: Colors.black,fontWeight: FontWeight.w600),
+                      texts("Payment Ref. No.",fontSize: SizeConfig.blockSizeVertical*2.2,textColor: Colors.black,fontWeight: FontWeight.w600),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical*0.5,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: SizeConfig.blockSizeHorizontal * 41,
+                        child: GestureDetector(
+                          onTap: () {
+                            FocusScope.of(context).unfocus();
+                            controller.mCornerWinnignBottomSheet(context, controller.typeList,'');
+                          },
+                          child: AbsorbPointer(
+                            child: TextFormField(
+                              scrollPadding: EdgeInsets.only(
+                                  bottom: SizeConfig.blockSizeVertical * 7),
+                              controller: controller.selectionCont.value,
+                              style: GoogleFonts.raleway(
+                                  textStyle: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: SizeConfig.blockSizeVertical * 2,
+                                      color: Colors.black)),
+                              cursorColor:
+                              Colors.black,
+                              decoration: InputDecoration(
+                                suffixIcon: Icon(
+                                  Icons.keyboard_arrow_down_outlined,
+                                  color: Colors.black,
+                                ),
+                                labelText: "Select Type",
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: SizeConfig.blockSizeHorizontal * 4,
+                                    vertical: SizeConfig.blockSizeVertical * 0.5),
+                                isDense: true,
+                                labelStyle: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: SizeConfig.blockSizeVertical * 1.9,
+                                        color: Colors.black54)),
+                                border: OutlineInputBorder(),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide: BorderSide(color: mainColor)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide: BorderSide(color: mainColor)),
+                              ),
+                              keyboardType: TextInputType.text,
+                              textInputAction: TextInputAction.next,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: SizeConfig.blockSizeHorizontal*41,
+                        child: FieldEditText(
+                          textAlign: TextAlign.start,
+                          mController: controller.name,
+                          verticalPadding:SizeConfig.blockSizeHorizontal*3,
+                          onSubmitted: (v) {
+                            FocusScope.of(context)
+                                .unfocus(
+                            );
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          isSecure: false,
+                          hintText: "Date",
+                          isPassword: false,
+                          textInputAction: TextInputAction.next,
+                          type: "username",
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical*2,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      texts("Note",fontSize: SizeConfig.blockSizeVertical*2.2,textColor: Colors.black,fontWeight: FontWeight.w600),
+                      texts("Document",fontSize: SizeConfig.blockSizeVertical*2.2,textColor: Colors.black,fontWeight: FontWeight.w600),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical*0.5,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: SizeConfig.blockSizeHorizontal*41,
+                        child: FieldEditText(
+                          textAlign: TextAlign.start,
+                          mController: controller.name,
+                          verticalPadding:SizeConfig.blockSizeHorizontal*3,
+                          onSubmitted: (v) {
+                            FocusScope.of(context)
+                                .unfocus(
+                            );
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          isSecure: false,
+                          hintText: "Note",
+                          isPassword: false,
+                          textInputAction: TextInputAction.next,
+                          type: "username",
+                        ),
+                      ),
+                      Container(
+                        width: SizeConfig.blockSizeHorizontal*41,
+                        child: FieldEditText(
+                          textAlign: TextAlign.start,
+                          mController: controller.name,
+                          verticalPadding:SizeConfig.blockSizeHorizontal*3,
+                          onSubmitted: (v) {
+                            FocusScope.of(context)
+                                .unfocus(
+                            );
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          isSecure: false,
+                          hintText: "Select Document",
+                          isPassword: false,
+                          textInputAction: TextInputAction.next,
+                          type: "username",
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical*2,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      texts("Received Amount",fontSize: SizeConfig.blockSizeVertical*2.2,
+                          textColor: Colors.black,fontWeight: FontWeight.w600),
+                      texts("Balance",fontSize: SizeConfig.blockSizeVertical*2.2,
+                          textColor: Colors.black,fontWeight: FontWeight.w600),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical*0.5,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: SizeConfig.blockSizeHorizontal*41,
+                        child: FieldEditText(
+                          textAlign: TextAlign.start,
+                          mController: controller.name,
+                          verticalPadding:SizeConfig.blockSizeHorizontal*3,
+                          onSubmitted: (v) {
+                            FocusScope.of(context)
+                                .unfocus(
+                            );
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          isSecure: false,
+                          hintText: "Received",
+                          isPassword: false,
+                          textInputAction: TextInputAction.next,
+                          type: "username",
+                        ),
+                      ),
+                      Container(
+                        width: SizeConfig.blockSizeHorizontal*41,
+                        child: FieldEditText(
+                          textAlign: TextAlign.start,
+                          mController: controller.name,
+                          verticalPadding:SizeConfig.blockSizeHorizontal*3,
+                          onSubmitted: (v) {
+                            FocusScope.of(context)
+                                .unfocus(
+                            );
+                          },
+                          keyboardType: TextInputType.emailAddress,
+                          isSecure: false,
+                          hintText: "Balance",
+                          isPassword: false,
+                          textInputAction: TextInputAction.next,
+                          type: "username",
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical*4,),
 
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      texts("Additional Charge",fontSize: SizeConfig.blockSizeVertical*1.9,
+                          fontWeight: FontWeight.w600,textColor:
+                          Colors.black45),
+                      texts("₹223.4",fontSize: SizeConfig.blockSizeVertical*1.9,
+                          fontWeight: FontWeight.w600,textColor:
+                          Colors.black45),
+                    ],),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      texts("Discount%.",fontSize: SizeConfig.blockSizeVertical*1.85,
+                          fontWeight: FontWeight.w500,textColor:
+                          iconColor),
+                      texts("20%",fontSize: SizeConfig.blockSizeVertical*1.85,
+                          fontWeight: FontWeight.w500,textColor:
+                          iconColor),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      texts("Discount(₹).",fontSize: SizeConfig.blockSizeVertical*1.85,
+                          fontWeight: FontWeight.w500,textColor:
+                          iconColor),
+                      texts("₹480",fontSize: SizeConfig.blockSizeVertical*1.85,
+                          fontWeight: FontWeight.w500,textColor:
+                          iconColor),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      texts("Total",fontSize: SizeConfig.blockSizeVertical*2.45,
+                          fontWeight: FontWeight.w700,textColor:
+                          Colors.black),
+                      texts("₹22213.4",fontSize: SizeConfig.blockSizeVertical*2.25,
+                          fontWeight: FontWeight.w600,textColor:
+                          Colors.black),
+                    ],),
+                  SizedBox(height: SizeConfig.blockSizeVertical*8,),
+                  Center(
+                    child: Button(
+                      width: SizeConfig.blockSizeHorizontal*45,
+                      height: SizeConfig.blockSizeVertical*5.5,
+                      textContent: 'Submit',
+                      buttontextColor: Colors.white,
+                      buttonBg: mainColor,
+                      radius: 80,
+                      onPressed: ()
+                      {
+                        Get.back();
+                      },
+                    ),
+                  ),
+                  SizedBox(height: SizeConfig.blockSizeVertical*2,),
               ],),
             )
         ),

@@ -9,6 +9,7 @@ import 'package:flutter_softbook/modules/item/productView.dart';
 import 'package:flutter_softbook/modules/item/serviceView.dart';
 import 'package:flutter_softbook/modules/party/partyView.dart';
 import 'package:flutter_softbook/modules/sale/saleInvoice/addSaleInvoiceView.dart';
+import 'package:flutter_softbook/modules/sale/saleReturn/addSaleReturnView.dart';
 import 'package:get/get.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -186,6 +187,7 @@ class AppDrawer extends StatelessWidget {
                         onTap: ()
                         {
                           Get.back();
+                          Get.to(()=>AddSaleInvoiceScreen());
                         },
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -214,7 +216,42 @@ class AppDrawer extends StatelessWidget {
                     title:  texts("Purchase",fontSize: SizeConfig.blockSizeVertical*2.45,
                         fontWeight: FontWeight.w600,textColor: Colors.black),
                     children: <Widget>[
-
+                      GestureDetector(
+                        onTap: ()
+                        {
+                          Get.back();
+                          Get.to(()=>AddSaleReturnScreen());
+                        },
+                        child: Row(
+                          children: [
+                            SizedBox(width: SizeConfig.blockSizeHorizontal*16,),
+                            Icon(Icons.arrow_forward,size: SizeConfig.blockSizeVertical*2.2,color: Colors.black54,),
+                            SizedBox(width: SizeConfig.blockSizeHorizontal*4,),
+                            texts("Purchase Invoice",fontSize: SizeConfig.blockSizeVertical*2.15,
+                                fontWeight: FontWeight.w500,textColor: Colors.black54),
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: ()
+                        {
+                          Get.back();
+                          Get.to(()=>AddSaleReturnScreen());
+                        },
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(width: SizeConfig.blockSizeHorizontal*16,),
+                            Icon(Icons.arrow_forward,size: SizeConfig.blockSizeVertical*2.2,color: Colors.black54,),
+                            SizedBox(width: SizeConfig.blockSizeHorizontal*4,),
+                            Container(
+                              width: SizeConfig.blockSizeHorizontal*43,
+                              child: texts("Purchase Return/Cr. Note",fontSize: SizeConfig.blockSizeVertical*2.15,
+                                  fontWeight: FontWeight.w500,textColor: Colors.black54),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
 
