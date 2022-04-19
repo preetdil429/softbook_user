@@ -12,7 +12,7 @@ class AddSaleReturnController extends GetxController {
 
   var showLoader = false.obs;
   var isPassword = false.obs;
-  var phone = TextEditingController().obs;
+  var  phone = TextEditingController().obs;
   var otpController = TextEditingController().obs;
   String verificationId = "";
   var formKey = GlobalKey<FormState>();
